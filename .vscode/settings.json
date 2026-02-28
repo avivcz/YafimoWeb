@@ -1,0 +1,6 @@
+{
+  // Enable autosave for this workspace only.
+  // Options: "off", "afterDelay", "onFocusChange", "onWindowChange".
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000
+}
