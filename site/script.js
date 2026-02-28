@@ -30,8 +30,7 @@ const updatePhotoBand = () => {
 
 const handleScroll = () => {
   if (prefersReducedMotion || !photoBand) return;
-  const isMobile = window.matchMedia('(max-width: 900px)').matches;
-  if (!isMobile) return;
+  // always run the offset calculation so the band moves even on desktop
   updatePhotoBand();
 };
 
