@@ -1,14 +1,19 @@
 # Devarim Yafimo Studio Landing Page
 
-This repository contains a small static website for Devarim Yafimo Studio.
+Static GitHub Pages site for Devarim Yafimo Studio.
 
-## Structure
-- `site/`: Static site files (HTML/CSS/JS/assets).
-- `index.html`: Root redirect used by GitHub Pages to open `site/`.
+## Current structure
+- `index.html`: The live page served by GitHub Pages from the repository root.
+- `site/styles.css`: Site styling.
+- `site/script.js`: Language toggle, reveal effects, and WhatsApp booking link generation.
+- `site/assets/`: Images used by the landing page.
 
-## Development
-Open `site/index.html` in a browser.
+## Why there used to be several `index.html` files
+GitHub Pages is configured to deploy from the repository root, so only the root entry point is needed.
+
+## Local preview
+Open `index.html` in a browser, or serve the repository root with any static file server.
 
 ## Notes
-- The site includes WhatsApp, Facebook, and TikTok links.
-- Images are hotlinked from external sources.
+- Social links included: WhatsApp, Facebook, TikTok.
+- Images are stored locally in `site/assets/`.

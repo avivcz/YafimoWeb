@@ -2,7 +2,7 @@ const revealItems = document.querySelectorAll('.reveal');
 const photoBand = document.querySelector('.photo-band');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-if (revealItems.length) {
+if (revealItems.length && 'IntersectionObserver' in window) {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -16,6 +16,8 @@ if (revealItems.length) {
   );
 
   revealItems.forEach((item) => observer.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
 const updatePhotoBand = () => {
@@ -50,19 +52,19 @@ const formFields = bookingForm ? bookingForm.querySelectorAll('input') : [];
 const placeholders = {
   he: {
     fullName: 'שם מלא',
-    event: 'יום הולדת',
-    location: 'סטודיו דברים יפימו (או בבית הלקוח)',
-    participants: 'כמות משתתפים',
-    ageRange: 'טווח גילאים',
-    date: 'תאריך הסדנא',
+    event: 'פעילות משפחתית בבית',
+    location: 'אצלנו בסטודיו או אצלכם בבית',
+    participants: 'כמה משתתפים',
+    ageRange: 'גילאי הילדים',
+    date: 'מתי תרצו לקיים את הסדנה',
   },
   en: {
     fullName: 'Full name',
-    event: 'Birthday',
-    location: 'Devarim Yafimo Studio (or at your location)',
-    participants: 'Number of participants',
-    ageRange: 'Age range',
-    date: 'Workshop date',
+    event: 'Creative family activity at home',
+    location: 'At your home, in a nearby shelter, or another protected space',
+    participants: 'How many participants',
+    ageRange: "Children's ages",
+    date: 'Preferred date',
   },
 };
 
@@ -97,34 +99,34 @@ const buildMessage = (lang) => {
     values[field.name] = field.value.trim();
   });
 
-  const eventValue = values.event || (lang === 'he' ? 'יום הולדת' : 'Birthday');
+  const eventValue = values.event || (lang === 'he' ? 'פעילות משפחתית' : 'Family activity');
   const locationValue =
     values.location ||
-    (lang === 'he' ? 'סטודיו דברים יפימו' : 'Devarim Yafimo Studio');
+    (lang === 'he' ? 'בסטודיו או בבית הלקוח' : 'At your home, in a nearby shelter, or another protected space');
 
   const base =
     lang === 'he'
-      ? 'היי! אשמח לתאם זמן לסדנה.'
-      : "Hi! I'd like to coordinate a time for a workshop.";
+      ? 'היי! נשמח לתאם סדנת פימו משפחתית.'
+      : "Hi! We'd like to coordinate a family polymer clay workshop.";
 
   const lines = [];
   if (values.fullName) {
     lines.push(lang === 'he' ? `שם מלא: ${values.fullName}` : `Full name: ${values.fullName}`);
   }
-  lines.push(lang === 'he' ? `מה האירוע: ${eventValue}` : `Event: ${eventValue}`);
-  lines.push(lang === 'he' ? `מיקום הסדנה: ${locationValue}` : `Location: ${locationValue}`);
+  lines.push(lang === 'he' ? `מה מחפשים: ${eventValue}` : `Looking for: ${eventValue}`);
+  lines.push(lang === 'he' ? `מיקום מועדף: ${locationValue}` : `Preferred location: ${locationValue}`);
   if (values.participants) {
     lines.push(
       lang === 'he'
-        ? `כמות משתתפים: ${values.participants}`
+        ? `כמה משתתפים: ${values.participants}`
         : `Participants: ${values.participants}`
     );
   }
   if (values.ageRange) {
-    lines.push(lang === 'he' ? `טווח גילאים: ${values.ageRange}` : `Age range: ${values.ageRange}`);
+    lines.push(lang === 'he' ? `גילאי הילדים: ${values.ageRange}` : `Children's ages: ${values.ageRange}`);
   }
   if (values.date) {
-    lines.push(lang === 'he' ? `תאריך הסדנה: ${values.date}` : `Workshop date: ${values.date}`);
+    lines.push(lang === 'he' ? `מועד מועדף: ${values.date}` : `Preferred date: ${values.date}`);
   }
 
   return `${base}\n${lines.join('\n')}`;
@@ -144,4 +146,4 @@ if (bookingForm) {
   bookingForm.addEventListener('input', updateWhatsAppLinks);
 }
 
-updateWhatsAppLinks();
+setLanguage(body.dataset.lang || 'he');

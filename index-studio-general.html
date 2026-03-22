@@ -3,12 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
+    />
     <meta
       name="description"
       content="סדנאות יצירה בפימו בירושלים - חוויה צבעונית עם תוצרים אישיים לכל גיל."
     />
     <title>Devarim Yafimo Studio | סדנאות פימו בירושלים</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;600;700&family=Heebo:wght@300;400;500;600&display=swap"
+    />
+    <link rel="stylesheet" href="site/styles.css" />
   </head>
   <body data-lang="he">
     <div class="page">
@@ -25,15 +36,15 @@
         </div>
         <div class="topbar-actions">
           <div class="lang-toggle" role="group" aria-label="Language">
-            <button class="lang-btn is-active" data-lang="he">עברית</button>
-            <button class="lang-btn" data-lang="en">English</button>
+            <button class="lang-btn is-active" data-lang="he" type="button">עברית</button>
+            <button class="lang-btn" data-lang="en" type="button">English</button>
           </div>
           <div class="social">
             <a
               class="social-link lang lang-he"
               href="https://www.facebook.com/DevarimYafimo"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="Facebook"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -47,7 +58,7 @@
               class="social-link lang lang-en"
               href="https://www.facebook.com/DevarimYafimoJudaica"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="Facebook"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -61,7 +72,7 @@
               class="social-link"
               href="https://www.tiktok.com/@rachel_dervarim_yafimo"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="TikTok"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -190,7 +201,7 @@
           <div class="gallery-grid">
             <figure class="gallery-item reveal">
               <img
-                src="assets/gallery-dreidels.jpg"
+                src="site/assets/gallery-dreidels.jpg"
                 alt="סביבון צבעוני"
                 loading="lazy"
               />
@@ -201,7 +212,7 @@
             </figure>
             <figure class="gallery-item reveal">
               <img
-                src="assets/gallery-salt-shakers.jpg"
+                src="site/assets/gallery-salt-shakers.jpg"
                 alt="מלחיות צבעוניות לבית"
                 loading="lazy"
               />
@@ -212,7 +223,7 @@
             </figure>
             <figure class="gallery-item reveal">
               <img
-                src="assets/gallery-miniature-food.jpg"
+                src="site/assets/gallery-miniature-food.jpg"
                 alt="מיניאטורות אוכל - דונאטים קטנים"
                 loading="lazy"
               />
@@ -223,7 +234,7 @@
             </figure>
             <figure class="gallery-item reveal">
               <img
-                src="assets/gallery-table-art.jpg"
+                src="site/assets/gallery-table-art.jpg"
                 alt="מרכז שולחן בעבודת יד"
                 loading="lazy"
               />
@@ -234,7 +245,7 @@
             </figure>
             <figure class="gallery-item reveal">
               <img
-                src="assets/gallery-kiddush-cups.jpg"
+                src="site/assets/gallery-kiddush-cups.jpg"
                 alt="כוס קידוש בעבודת יד"
                 loading="lazy"
               />
@@ -245,7 +256,7 @@
             </figure>
             <figure class="gallery-item reveal">
               <img
-                src="assets/gallery-serving-pieces.jpg"
+                src="site/assets/gallery-serving-pieces.jpg"
                 alt="כלי הגשה פרחוניים"
                 loading="lazy"
               />
@@ -255,7 +266,7 @@
               </figcaption>
             </figure>
             <figure class="gallery-item reveal">
-              <img src="assets/wall-decor.jpg" alt="קישוטי קיר בעבודת יד" loading="lazy" />
+              <img src="site/assets/wall-decor.jpg" alt="קישוטי קיר בעבודת יד" loading="lazy" />
               <figcaption>
                 <span class="lang lang-he">קישוטי קיר</span>
                 <span class="lang lang-en">Wall decor</span>
@@ -263,7 +274,7 @@
             </figure>
             <figure class="gallery-item reveal">
               <img
-                src="assets/gallery-candlesticks.jpg"
+                src="site/assets/gallery-candlesticks.jpg"
                 alt="פמוטים בעבודת יד"
                 loading="lazy"
               />
@@ -274,7 +285,7 @@
             </figure>
             <figure class="gallery-item reveal">
               <img
-                src="assets/gallery-mezuzot.jpg"
+                src="site/assets/gallery-mezuzot.jpg"
                 alt="מזוזה גיאומטרית מפימו"
                 loading="lazy"
               />
@@ -284,12 +295,10 @@
               </figcaption>
             </figure>
             <figure class="gallery-item reveal">
-              <img src="assets/colorful-pens.jpg" alt="עטים צבעוניים בעבודת יד" loading="lazy" />
+              <img src="site/assets/colorful-pens.jpg" alt="עטים צבעוניים בעבודת יד" loading="lazy" />
               <figcaption>
                 <span class="lang lang-he">עטים צבעוניים</span>
                 <span class="lang lang-en">Colorful pens</span>
-              </figcaption>
-            </figure>
               </figcaption>
             </figure>
           </div>
@@ -381,26 +390,27 @@
                 </label>
               </div>
             </form>
-            <div class="cta-actions" style="margin-top: 30px; justify-content: center;">
+            <div class="cta-actions cta-actions-spaced">
               <a
                 class="btn btn-primary btn-large lang lang-he"
-                href="#"
+                href="https://wa.me/972543381224?text=%D7%94%D7%99%D7%99!%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%96%D7%9E%D7%9F%20%D7%9C%D7%A1%D7%93%D7%A0%D7%94."
                 data-whatsapp="true"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 שלחו וואצאפ להזמנת סדנא עם הפרטים!
               </a>
               <a
                 class="btn btn-primary btn-large lang lang-en"
-                href="#"
+                href="https://wa.me/972543381224?text=Hi!%20I%27d%20like%20to%20coordinate%20a%20time%20for%20a%20workshop."
                 data-whatsapp="true"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 Send WhatsApp to book a workshop with the details!
               </a>
             </div>
+          </div>
         </section>
       </main>
 
@@ -416,6 +426,6 @@
       </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="site/script.js"></script>
   </body>
 </html>
